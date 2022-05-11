@@ -2,8 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import postRoutes from './routes/posts.js'
 
 const app = express();
+
+app.use('./posts', postRoutes);
 
 app.use(bodyParser.json( { limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -20,3 +23,4 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
 app.get('/', (req, res) =>{
     res.send('Welcome')
 })
+

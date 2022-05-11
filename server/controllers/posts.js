@@ -12,8 +12,17 @@ const getPosts = async (reg, res) => {
 }
 
 
-const createPost = (reg, res) => {
-  res.send('Post Cration');
+const createPost = async (reg, res) => {
+  const post = req.body;
 
+  const newPost = new PostMessage(post);
+
+    try { 
+        await newPost.save();
+        res.status(201).json(newPost);
+    } catch (error) {
+        res.send(409).json( { message: error.message })
+
+    }
 }
 export { getPosts, createPost }

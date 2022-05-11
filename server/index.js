@@ -22,5 +22,6 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
 
 app.get('/', (req, res) =>{
     res.send('Welcome')
+
 })
 

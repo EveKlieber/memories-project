@@ -7,7 +7,7 @@ const router = express.Router();
 
 // localhost/5000/posts
 router.get('/', getPosts);
-router.get('/', createPost);
+router.post('/', createPost); // changed from post
 router.patch('/:id', updatePost);
 router.delete('/:id', deletePost);
 
